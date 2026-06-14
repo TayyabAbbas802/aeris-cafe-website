@@ -215,3 +215,12 @@ section {
 .hover-word:hover {
     color: #E8AC41 !important;
 }
+
+/* Optimize rendering for large blurred glow backdrops (GPU accelerated) */
+.blur-\[100px\],
+.blur-\[120px\],
+.blur-\[150px\] {
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+}

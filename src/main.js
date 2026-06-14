@@ -14,18 +14,13 @@ const lenis = new Lenis({
     touchMultiplier: 2,
 });
 
-function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-}
-requestAnimationFrame(raf);
-
 lenis.on('scroll', ScrollTrigger.update);
 
-if (isMotionOK) {
-    gsap.ticker.add((time) => lenis.raf(time * 1000));
-    gsap.ticker.lagSmoothing(0);
-}
+// Unified RAF loop using GSAP ticker to prevent duplicate layout reflows
+gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+});
+gsap.ticker.lagSmoothing(0);
 
 function splitChars(el) {
     const text = el.textContent;
@@ -143,10 +138,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (p.x < -10) p.x = w + 10;
                 if (p.x > w + 10) p.x = -10;
 
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                // High-performance square rendering: bypasses slow vector path rasterization
                 ctx.fillStyle = `rgba(232, 172, 65, ${p.alpha})`;
-                ctx.fill();
+                ctx.fillRect(p.x - p.r, p.y - p.r, p.r * 2, p.r * 2);
             });
             requestAnimationFrame(draw);
         }
@@ -436,15 +430,31 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild(cursor);
 
         let mx = 0, my = 0, cx = 0, cy = 0;
-        document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; });
+        let cursorActive = false;
+        document.addEventListener('mousemove', (e) => {
+            mx = e.clientX;
+            my = e.clientY;
+            if (!cursorActive && isMotionOK) {
+                cursorActive = true;
+                requestAnimationFrame(animCursor);
+            }
+        });
 
         function animCursor() {
+            const dx = mx - cx;
+            const dy = my - cy;
+            if (Math.abs(dx) < 0.1 && Math.abs(dy) < 0.1) {
+                cx = mx;
+                cy = my;
+                cursor.style.transform = `translate3d(${cx - 10}px, ${cy - 10}px, 0)`;
+                cursorActive = false;
+                return;
+            }
             cx = lerp(cx, mx, 0.12);
             cy = lerp(cy, my, 0.12);
-            cursor.style.transform = `translate(${cx - 10}px, ${cy - 10}px)`;
+            cursor.style.transform = `translate3d(${cx - 10}px, ${cy - 10}px, 0)`;
             requestAnimationFrame(animCursor);
         }
-        if (isMotionOK) animCursor();
 
         const cursorSvg = cursor.querySelector('svg');
         document.querySelectorAll('a, button, .signature-card, video').forEach(el => {
