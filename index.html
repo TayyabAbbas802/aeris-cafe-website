@@ -54,7 +54,7 @@
             </header>
         </section>
 
-        <section id="alchemy" class="relative py-32 md:py-48 px-6 bg-[#100C08]">
+        <section id="alchemy" class="relative pt-24 pb-12 md:pt-36 md:pb-16 px-6 bg-[#100C08]">
             <div class="max-w-6xl mx-auto relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                     <div class="lg:col-span-5 space-y-8 reveal-node" data-speed="0.8">
@@ -68,6 +68,12 @@
                         <p class="text-base md:text-lg font-light leading-relaxed text-[#F4F0EC]/50">
                             Each single-origin bean is treated as a unique narrative. The heat is tempered by the cool air of 3 AM, ensuring a complexity that only reveals itself to those who pause.
                         </p>
+                        
+                        <!-- Premium visual to fill empty space and balance layout -->
+                        <div class="relative mt-8 w-full aspect-[4/5] overflow-hidden border border-[#F4F0EC]/10 rounded-xs group">
+                            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&w=800&q=80&fit=crop" alt="Artisanal Coffee" class="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-[6s] hover:scale-105" loading="lazy">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#100C08]/90 via-transparent to-transparent pointer-events-none"></div>
+                        </div>
                     </div>
 
                     <div class="hidden lg:block lg:col-span-1"></div>
@@ -86,13 +92,58 @@
                                 <p class="text-[#E8AC41] text-xs uppercase tracking-wider">Master of the Obsidian Blend</p>
                             </div>
                         </div>
+
+                        <!-- Premium Roast Specs Dashboard to fill space -->
+                        <div class="mt-16 pt-8 border-t border-[#F4F0EC]/10 space-y-6">
+                            <h4 class="text-xs uppercase tracking-[0.3em] text-[#E8AC41] font-bold">Alchemy Specs & Roast Curve</h4>
+                            <div class="grid grid-cols-3 gap-4 text-left">
+                                <div class="space-y-1">
+                                    <span class="text-[10px] text-[#F4F0EC]/40 uppercase tracking-wider block">Roast Temp</span>
+                                    <span class="text-xl font-serif text-[#F4F0EC] font-bold">204°C</span>
+                                </div>
+                                <div class="space-y-1">
+                                    <span class="text-[10px] text-[#F4F0EC]/40 uppercase tracking-wider block">Duration</span>
+                                    <span class="text-xl font-serif text-[#F4F0EC] font-bold">14m 22s</span>
+                                </div>
+                                <div class="space-y-1">
+                                    <span class="text-[10px] text-[#F4F0EC]/40 uppercase tracking-wider block">Elevation</span>
+                                    <span class="text-xl font-serif text-[#F4F0EC] font-bold">2,100m</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Minimalist SVG roast curve chart -->
+                            <div class="h-20 w-full bg-[#3D2B1F]/10 border border-[#F4F0EC]/5 rounded-xs p-3 relative overflow-hidden group/chart hover:border-[#E8AC41]/20 transition-colors">
+                                <svg class="w-full h-full" viewBox="0 0 300 60" preserveAspectRatio="none">
+                                    <defs>
+                                        <linearGradient id="chartGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                                            <stop offset="0%" stop-color="#E8AC41" stop-opacity="0.05" />
+                                            <stop offset="50%" stop-color="#E8AC41" stop-opacity="0.2" />
+                                            <stop offset="100%" stop-color="#E8AC41" stop-opacity="0.4" />
+                                        </linearGradient>
+                                    </defs>
+                                    <line x1="0" y1="20" x2="300" y2="20" stroke="#F4F0EC" stroke-opacity="0.05" stroke-dasharray="2 4" />
+                                    <line x1="0" y1="40" x2="300" y2="40" stroke="#F4F0EC" stroke-opacity="0.05" stroke-dasharray="2 4" />
+                                    <path d="M 0,55 C 50,54 100,50 150,38 C 200,26 250,15 300,5" fill="none" stroke="#E8AC41" stroke-width="1.5" stroke-linecap="round" />
+                                    <path d="M 0,55 C 50,54 100,50 150,38 C 200,26 250,15 300,5 L 300,60 L 0,60 Z" fill="url(#chartGrad)" />
+                                    <circle cx="150" cy="38" r="3" fill="#E8AC41" />
+                                </svg>
+                                <span class="absolute top-2 right-3 text-[8px] font-mono uppercase tracking-widest text-[#E8AC41] opacity-70">Crack Point</span>
+                                <span class="absolute bottom-2 left-3 text-[8px] font-mono text-[#F4F0EC]/30">Charge: 160°C</span>
+                                <span class="absolute bottom-2 right-3 text-[8px] font-mono text-[#F4F0EC]/30">Drop: 204°C</span>
+                            </div>
+                            
+                            <p class="text-xs font-light leading-relaxed text-[#F4F0EC]/40 italic">
+                                "Our profile records show temperature, air flow, and drum velocity adjusted dynamically in response to outdoor atmospheric pressure at 3 AM."
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="absolute top-1/2 right-0 w-[600px] h-[600px] bg-[#3D2B1F]/20 blur-[150px] rounded-full pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#E8AC41]/3 blur-[120px] rounded-full pointer-events-none"></div>
         </section>
 
-        <section id="artifacts" class="py-24 md:py-32 px-6 bg-[#100C08]">
+        <section id="artifacts" class="pt-12 pb-24 md:pt-16 md:pb-32 px-6 bg-[#100C08]">
             <div class="max-w-7xl mx-auto">
                 <div class="flex flex-col md:flex-row items-end justify-between gap-12 mb-16 md:mb-24 reveal-node">
                     <h2 class="text-6xl md:text-8xl lg:text-9xl font-black text-[#F4F0EC] tracking-tighter leading-none font-serif">
