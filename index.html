@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" class="custom-scrollbar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AERIS — Midnight Collective Cafe</title>
+    <meta name="description" content="An immersive dark-themed artisanal coffee experience. Hand-ground Ceylon bark, single-origin concentrates, and volcanic soil roasts.">
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+<body class="bg-[#100C08] text-[#F4F0EC]">
+    <div class="bg-[#100C08] text-[#F4F0EC] font-sans overflow-x-hidden selection:bg-[#E8AC41] selection:text-[#100C08] relative">
+
+        <div class="grain-cinematic"></div>
+
+        <div id="scroll-progress" class="fixed top-0 left-0 w-0 h-[2px] bg-gradient-to-r from-[#E8AC41] via-[#E8AC41]/60 to-transparent z-[300]"></div>
+
+        <section id="hero-entrance" class="relative h-screen overflow-hidden bg-[#100C08]">
+            <div class="split-panel panel-left">
+                <span class="text-[#F4F0EC]/5 text-[20vw] font-serif translate-x-1/2">A</span>
+            </div>
+            <div class="split-panel panel-right">
+                <span class="text-[#F4F0EC]/5 text-[20vw] font-serif -translate-x-1/2">R</span>
+            </div>
+
+            <nav class="absolute top-0 left-0 w-full z-[110] flex items-center justify-between px-6 md:px-16 py-6 md:py-10 opacity-0 transition-opacity duration-1000 delay-1000" id="hero-nav">
+                <div class="text-2xl font-serif font-bold tracking-[0.2em] text-[#F4F0EC]">AERIS</div>
+                <div class="hidden md:flex items-center gap-10 text-[9px] font-black uppercase tracking-[0.4em] text-[#F4F0EC]/50">
+                    <a href="#alchemy" class="hover:text-[#E8AC41] transition-all duration-300">The Blend</a>
+                    <a href="#artifacts" class="hover:text-[#E8AC41] transition-all duration-300">Roastery</a>
+                    <a href="#haven" class="hover:text-[#E8AC41] transition-all duration-300">Experience</a>
+                    <a href="#haven" class="ml-4 px-8 py-3 bg-[#E8AC41] text-[#100C08] rounded-xs hover:bg-[#F4F0EC] shadow-[0_10px_20px_rgba(232,172,65,0.2)] transition-all">Visit Sanctuary</a>
+                </div>
+            </nav>
+
+            <canvas id="particles-canvas" class="absolute inset-0 z-[5] pointer-events-none"></canvas>
+
+            <header class="h-full flex items-center justify-center relative overflow-hidden">
+                <h1 class="absolute inset-0 flex items-center justify-center text-[clamp(10rem,20vw,24rem)] font-black text-[#3D2B1F]/20 select-none tracking-tighter z-0 leading-none transform -translate-y-12 font-serif" id="hero-bg-text">
+                    AERIS
+                </h1>
+
+                <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-[#E8AC41]/5 rounded-full blur-[120px] z-0 animate-pulse" id="glow-top"></div>
+                <div class="absolute bottom-1/4 left-1/4 w-96 h-96 bg-[#3D2B1F]/30 rounded-full blur-[120px] z-0" id="glow-bottom"></div>
+
+                <div class="absolute inset-x-0 -top-[20vh] h-[135vh] z-10 w-full pointer-events-none opacity-0" id="hero-product">
+                    <img src="https://images.unsplash.com/photo-1595565766385-fbf60d26349f?auto=format&w=1920&q=90&fit=crop" alt="Coffee Splash" class="w-full h-full object-cover" decoding="async" loading="lazy">
+                </div>
+
+                <div class="absolute bottom-16 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-6 opacity-0 transition-all duration-1000 delay-1500" id="hero-hint">
+                    <span class="text-[#E8AC41] text-[10px] uppercase tracking-[1.5em] font-black opacity-30">Descend</span>
+                    <div class="w-px h-24 bg-gradient-to-b from-[#E8AC41]/40 to-transparent"></div>
+                </div>
+            </header>
+        </section>
+
+        <section id="alchemy" class="relative py-32 md:py-48 px-6 bg-[#100C08]">
+            <div class="max-w-6xl mx-auto relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-5 space-y-8 reveal-node" data-speed="0.8">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-8 h-px bg-[#E8AC41]"></div>
+                            <span class="text-[#E8AC41] text-xs font-bold uppercase tracking-[0.3em]">The Alchemy</span>
+                        </div>
+                        <p class="text-xl md:text-2xl font-light leading-relaxed text-[#F4F0EC]/80">
+                            In the heart of the midnight city, we practice a craft that defies the clock.
+                        </p>
+                        <p class="text-base md:text-lg font-light leading-relaxed text-[#F4F0EC]/50">
+                            Each single-origin bean is treated as a unique narrative. The heat is tempered by the cool air of 3 AM, ensuring a complexity that only reveals itself to those who pause.
+                        </p>
+                    </div>
+
+                    <div class="hidden lg:block lg:col-span-1"></div>
+
+                    <div class="lg:col-span-6 relative pt-16 lg:pt-0 reveal-node" data-speed="1.1">
+                        <div class="absolute -top-12 lg:-top-32 lg:-left-20 text-[12rem] lg:text-[14rem] font-serif text-[#3D2B1F]/20 leading-none select-none italic transform -rotate-6">&#8220;</div>
+                        <blockquote class="text-5xl md:text-7xl lg:text-[7rem] font-black text-[#F4F0EC] leading-[1] tracking-tighter italic relative z-10 font-serif">
+                            Taste the <span class="text-[#E8AC41]">silence</span><br> between the stars.
+                        </blockquote>
+                        <div class="mt-12 md:mt-16 flex items-center gap-6">
+                            <div class="w-12 h-12 rounded-full overflow-hidden border border-[#E8AC41]/30">
+                                <img src="https://i.pravatar.cc/100?u=elias" alt="Elias Thorne" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <p class="text-[#F4F0EC] font-bold text-sm tracking-widest uppercase">Elias Thorne</p>
+                                <p class="text-[#E8AC41] text-xs uppercase tracking-wider">Master of the Obsidian Blend</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute top-1/2 right-0 w-[600px] h-[600px] bg-[#3D2B1F]/20 blur-[150px] rounded-full pointer-events-none"></div>
+        </section>
+
+        <section id="artifacts" class="py-24 md:py-32 px-6 bg-[#100C08]">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col md:flex-row items-end justify-between gap-12 mb-16 md:mb-24 reveal-node">
+                    <h2 class="text-6xl md:text-8xl lg:text-9xl font-black text-[#F4F0EC] tracking-tighter leading-none font-serif">
+                        Signature <br><span class="text-[#E8AC41]">Artifacts</span>
+                    </h2>
+                    <div class="max-w-sm space-y-6 pb-2">
+                        <div class="w-12 h-0.5 bg-[#E8AC41]"></div>
+                        <p class="text-[#F4F0EC]/50 text-base font-light italic leading-relaxed">
+                            Our menu is a living collection of experiments in texture, temperature, and origin. Each pour is a singular event curated for the deep hours.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8 min-h-[600px] lg:h-[760px] signature-grid">
+                    <div class="lg:col-span-4 relative group overflow-hidden border border-[#F4F0EC]/10 video-container">
+                        <video src="https://videos.pexels.com/video-files/13662188/13662188-uhd_3840_2160_25fps.mp4" poster="https://images.pexels.com/videos/13662188/brewed-coffee-coffee-coffee-bar-cups-of-coffee-13662188.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200" autoplay muted loop playsinline preload="metadata" class="w-full h-full object-cover grayscale-[0.2] transition-transform duration-[2s] group-hover:scale-105">
+                        </video>
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#100C08] via-transparent to-[#100C08]/40 pointer-events-none"></div>
+                        <div class="absolute bottom-6 md:bottom-12 left-6 md:left-12 max-w-lg">
+                            <span class="inline-block px-3 py-1 border border-[#E8AC41] text-[#E8AC41] text-[10px] font-bold uppercase tracking-[0.3em] mb-4">In-House Ritual</span>
+                            <h3 class="text-3xl md:text-5xl font-serif text-[#F4F0EC] mb-4">The Midnight Pour</h3>
+                            <p class="text-[#F4F0EC]/60 font-light leading-relaxed text-sm md:text-base">
+                                A triple-shot ristretto base folded into micro-foamed oat milk, finished with a dash of activated charcoal and Madagascar vanilla bean.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-1 flex flex-col gap-4 lg:gap-6">
+                        <div class="flex-1 bg-[#3D2B1F]/20 border border-[#F4F0EC]/5 p-4 md:p-6 flex flex-col justify-between group cursor-pointer hover:bg-[#3D2B1F]/50 hover:border-[#E8AC41]/30 transition-all duration-500 rounded-xs signature-card">
+                            <div class="flex justify-between items-start">
+                                <span class="text-[#E8AC41] font-bold text-[10px] tracking-widest">01</span>
+                                <span class="text-[#F4F0EC]/40 text-[10px] font-bold">$9.00</span>
+                            </div>
+                            <div>
+                                <h4 class="text-xl md:text-2xl font-serif text-[#F4F0EC] group-hover:text-[#E8AC41] transition-colors leading-tight mb-2">Obsidian Latte</h4>
+                                <div class="flex items-center gap-2">
+                                    <div class="flex-shrink-0 w-2 h-2 rounded-full bg-[#100C08] border border-[#E8AC41]/30"></div>
+                                    <p class="text-[9px] text-[#F4F0EC]/40 uppercase tracking-[0.2em]">Charcoal • Dark Honey</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-1 bg-[#3D2B1F]/20 border border-[#F4F0EC]/5 p-4 md:p-6 flex flex-col justify-between group cursor-pointer hover:bg-[#3D2B1F]/50 hover:border-[#E8AC41]/30 transition-all duration-500 rounded-xs signature-card">
+                            <div class="flex justify-between items-start">
+                                <span class="text-[#E8AC41] font-bold text-[10px] tracking-widest">02</span>
+                                <span class="text-[#F4F0EC]/40 text-[10px] font-bold">$12.00</span>
+                            </div>
+                            <div>
+                                <h4 class="text-xl md:text-2xl font-serif text-[#F4F0EC] group-hover:text-[#E8AC41] transition-colors leading-tight mb-2">Amber Brew</h4>
+                                <div class="flex items-center gap-2">
+                                    <div class="flex-shrink-0 w-2 h-2 rounded-full bg-[#E8AC41]/20 border border-[#E8AC41]/30"></div>
+                                    <p class="text-[9px] text-[#F4F0EC]/40 uppercase tracking-[0.2em]">12hr Cold • Oak Smoked</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-1 bg-[#3D2B1F]/20 border border-[#F4F0EC]/5 p-4 md:p-6 flex flex-col justify-between group cursor-pointer hover:bg-[#3D2B1F]/50 hover:border-[#E8AC41]/30 transition-all duration-500 rounded-xs signature-card">
+                            <div class="flex justify-between items-start">
+                                <span class="text-[#E8AC41] font-bold text-[10px] tracking-widest">03</span>
+                                <span class="text-[#F4F0EC]/40 text-[10px] font-bold">$11.00</span>
+                            </div>
+                            <div>
+                                <h4 class="text-xl md:text-2xl font-serif text-[#F4F0EC] group-hover:text-[#E8AC41] transition-colors leading-tight mb-2">Luna Matcha</h4>
+                                <div class="flex items-center gap-2">
+                                    <div class="flex-shrink-0 w-2 h-2 rounded-full bg-[#F4F0EC]/10 border border-[#E8AC41]/30"></div>
+                                    <p class="text-[9px] text-[#F4F0EC]/40 uppercase tracking-[0.2em]">Ceremonial • Lavender</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-shrink-0 h-14 md:h-16 flex items-center justify-center border border-dashed border-[#F4F0EC]/20 hover:border-[#E8AC41]/50 hover:bg-[#F4F0EC]/5 transition-all cursor-pointer group rounded-xs signature-card">
+                            <span class="text-[#F4F0EC]/40 group-hover:text-[#E8AC41] text-[10px] font-bold uppercase tracking-[0.4em]">Explore Seasonal Menu</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- Section: Showcase Selection -->
+        <section class="showcase-section relative bg-[#0C0906]" id="showcase">
+            <div class="showcase-pin h-screen flex items-center overflow-hidden">
+                
+                <!-- Left side: Text Details -->
+                <div class="w-1/2 h-full flex flex-col justify-center px-24 relative z-20 bg-[#0C0906]">
+                    <div class="overflow-hidden h-[20px] mb-4">
+                        <div class="showcase-numbers-wrapper flex flex-col text-[#E8AC41] font-bold text-sm tracking-widest uppercase">
+                            <span class="h-[20px] flex items-center">01 / 04</span>
+                            <span class="h-[20px] flex items-center">02 / 04</span>
+                            <span class="h-[20px] flex items-center">03 / 04</span>
+                            <span class="h-[20px] flex items-center">04 / 04</span>
+                        </div>
+                    </div>
+                    
+                    <div class="relative h-48 mb-6">
+                        <div class="flavor-text-item absolute inset-0 opacity-1" data-index="0">
+                            <h3 class="text-7xl font-serif text-[#F4F0EC] mb-6">Obsidian Latte</h3>
+                            <p class="text-[#F4F0EC]/50 text-lg font-light leading-relaxed max-w-md">Charcoal-infused ristretto folded into micro-foamed oat milk with Madagascar vanilla.</p>
+                        </div>
+                        <div class="flavor-text-item absolute inset-0 opacity-0" data-index="1">
+                            <h3 class="text-7xl font-serif text-[#F4F0EC] mb-6">Amber Cold Brew</h3>
+                            <p class="text-[#F4F0EC]/50 text-lg font-light leading-relaxed max-w-md">12-hour slow immersion extraction with notes of oak-smoked honey and forest floor.</p>
+                        </div>
+                        <div class="flavor-text-item absolute inset-0 opacity-0" data-index="2">
+                            <h3 class="text-7xl font-serif text-[#F4F0EC] mb-6">Velvet Espresso</h3>
+                            <p class="text-[#F4F0EC]/50 text-lg font-light leading-relaxed max-w-md">Pure single-origin concentrate with a thick, buttery hazelnut crema and dark cocoa finish.</p>
+                        </div>
+                        <div class="flavor-text-item absolute inset-0 opacity-0" data-index="3">
+                            <h3 class="text-7xl font-serif text-[#F4F0EC] mb-6">Cerulean Pour</h3>
+                            <p class="text-[#F4F0EC]/50 text-lg font-light leading-relaxed max-w-md">Precision-brewed specialty beans revealing ethereal notes of jasmine and wild bergamot.</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-12">
+                        <button class="px-10 py-4 border border-[#E8AC41] text-[#E8AC41] text-[10px] font-bold uppercase tracking-[0.4em] hover:bg-[#E8AC41] hover:text-[#100C08] transition-all">Order Ritual</button>
+                    </div>
+                </div>
+
+                <!-- Right side: Layered Images -->
+                <div class="w-1/2 h-full relative overflow-hidden">
+                    <div class="flavor-image-container h-full w-full relative">
+                        <img src="https://images.unsplash.com/photo-1720214963157-1723026a0ff8?auto=format&w=1400&q=80&fit=crop" class="flavor-img absolute inset-0 w-full h-full object-cover grayscale-[0.3] z-[4]" alt="Latte" decoding="async" loading="lazy">
+                        <img src="https://images.pexels.com/photos/36788555/pexels-photo-36788555.jpeg?auto=compress&cs=tinysrgb&w=1400&q=80" class="flavor-img absolute inset-0 w-full h-full object-cover grayscale-[0.3] z-[3] opacity-0" alt="Cold Brew" decoding="async" loading="lazy">
+                        <img src="https://images.pexels.com/photos/5567610/pexels-photo-5567610.jpeg?auto=compress&cs=tinysrgb&w=1400&q=80" class="flavor-img absolute inset-0 w-full h-full object-cover grayscale-[0.3] z-[2] opacity-0" alt="Espresso" decoding="async" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1595827295672-97a059484442?auto=format&w=1400&q=80&fit=crop" class="flavor-img absolute inset-0 w-full h-full object-cover grayscale-[0.3] z-[1] opacity-0" alt="Pour Over" decoding="async" loading="lazy">
+                    </div>
+                    
+                    <div class="absolute inset-0 bg-gradient-to-r from-[#0C0906] via-transparent to-transparent z-10"></div>
+                    <div class="absolute inset-0 bg-[#0C0906]/20 z-10 mix-blend-multiply"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: The Haven -->
+        <section id="haven" class="relative h-[600px] md:h-[850px] bg-[#100C08] flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-[#100C08] via-[#3D2B1F]/40 to-[#100C08]"></div>
+
+            <div class="w-full max-w-4xl lg:max-w-5xl aspect-video relative z-0 overflow-hidden shadow-[0_0_120px_rgba(0,0,0,1)] ring-1 ring-[#F4F0EC]/10 reveal-node" id="haven-bg-container">
+                <img src="https://images.pexels.com/photos/35005900/pexels-photo-35005900.jpeg?auto=compress&cs=tinysrgb&w=1600&q=80" alt="Warm Cafe Interior" class="w-full h-full object-cover grayscale-[0.3] hover:grayscale-0 transition-all duration-[8s] hover:scale-105" id="haven-bg-img" decoding="async" loading="lazy">
+                <div class="absolute inset-0 pointer-events-none border-[20px] md:border-[40px] border-[#100C08]/90"></div>
+                <div class="absolute inset-0 pointer-events-none shadow-[inset_0_0_200px_rgba(0,0,0,1)]"></div>
+            </div>
+
+            <div class="absolute bottom-8 md:bottom-16 left-4 md:left:auto md:left-40 z-20 w-[calc(100%-2rem)] md:w-full max-w-sm bg-[#F4F0EC] p-6 md:p-10 shadow-[0_40px_80px_rgba(0,0,0,0.6)] transform -rotate-1 hover:rotate-0 transition-transform duration-700 reveal-node" id="haven-card">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-10 h-0.5 bg-[#E8AC41]"></div>
+                    <h3 class="text-[#100C08] text-3xl md:text-4xl font-serif leading-none">The Haven</h3>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-[9px] uppercase tracking-[0.4em] font-black text-[#E8AC41] mb-2">Sanctuary Address</p>
+                            <p class="text-[#100C08] font-light text-base md:text-lg">42 Midnight Avenue, NYC</p>
+                        </div>
+                        <div class="flex gap-8">
+                            <div>
+                                <p class="text-[9px] uppercase tracking-[0.4em] font-black text-[#E8AC41] mb-1">Opens</p>
+                                <p class="text-[#100C08] font-bold text-sm uppercase">10:00 PM</p>
+                            </div>
+                            <div>
+                                <p class="text-[9px] uppercase tracking-[0.4em] font-black text-[#E8AC41] mb-1">Closes</p>
+                                <p class="text-[#100C08] font-bold text-sm uppercase">04:00 AM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#" class="block w-full text-center py-4 bg-[#100C08] text-[#F4F0EC] text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-[#E8AC41] hover:text-[#100C08] transition-all duration-300">
+                        Get Directions
+                    </a>
+                </div>
+            </div>
+
+            <div class="absolute top-1/4 right-0 w-[300px] md:w-[400px] h-[300px] md:h-[400px] bg-[#3D2B1F]/30 blur-[100px] rounded-full pointer-events-none"></div>
+            <div class="absolute bottom-1/4 left-0 w-[300px] md:w-[400px] h-[300px] md:h-[400px] bg-[#E8AC41]/10 blur-[100px] rounded-full pointer-events-none"></div>
+        </section>
+
+        <footer class="bg-[#100C08] py-16 md:py-20 px-6 md:px-10 border-t border-[#F4F0EC]/5 text-center">
+            <div class="text-[15vw] md:text-[20vw] font-serif font-black text-[#F4F0EC]/3 leading-none select-none">AERIS</div>
+            <div class="flex flex-col md:flex-row justify-between items-center mt-12 md:mt-20 gap-6 md:gap-10 opacity-30 text-[10px] font-black uppercase tracking-[0.5em]">
+                <span>© 2026 Midnight Collective</span>
+                <div class="flex gap-10 md:gap-20">
+                    <a href="#" class="hover:text-[#E8AC41] transition-colors">Instagram</a>
+                    <a href="#" class="hover:text-[#E8AC41] transition-colors">Vimeo</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
