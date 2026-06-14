@@ -23,20 +23,36 @@
                 <span class="text-[#F4F0EC]/5 text-[20vw] font-serif -translate-x-1/2">R</span>
             </div>
 
-            <nav class="absolute top-0 left-0 w-full z-[110] flex items-center justify-between px-6 md:px-16 py-6 md:py-10 opacity-0 transition-opacity duration-1000 delay-1000" id="hero-nav">
+            <!-- Mobile Menu Overlay -->
+            <div id="mobile-menu" class="fixed inset-0 bg-[#100C08]/98 backdrop-blur-md z-[140] flex flex-col justify-center items-center gap-8 text-xl font-serif uppercase tracking-[0.2em] -translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.85,0,0.15,1)]">
+                <a href="#alchemy" class="mobile-nav-link hover:text-[#E8AC41] transition-colors">The Blend</a>
+                <a href="#artifacts" class="mobile-nav-link hover:text-[#E8AC41] transition-colors">Roastery</a>
+                <a href="#showcase" class="mobile-nav-link hover:text-[#E8AC41] transition-colors">Showcase</a>
+                <a href="#haven" class="mobile-nav-link hover:text-[#E8AC41] transition-colors">Experience</a>
+                <a href="#haven" class="mobile-nav-link mt-8 px-8 py-3 bg-[#E8AC41] text-[#100C08] text-[10px] font-sans font-black tracking-[0.4em] rounded-xs hover:bg-[#F4F0EC] transition-all">Visit Sanctuary</a>
+            </div>
+
+            <nav class="absolute top-0 left-0 w-full z-[150] flex items-center justify-between px-6 md:px-16 py-6 md:py-10 opacity-0 transition-opacity duration-1000 delay-1000" id="hero-nav">
                 <div class="text-2xl font-serif font-bold tracking-[0.2em] text-[#F4F0EC]">AERIS</div>
                 <div class="hidden md:flex items-center gap-10 text-[9px] font-black uppercase tracking-[0.4em] text-[#F4F0EC]/50">
                     <a href="#alchemy" class="hover:text-[#E8AC41] transition-all duration-300">The Blend</a>
                     <a href="#artifacts" class="hover:text-[#E8AC41] transition-all duration-300">Roastery</a>
+                    <a href="#showcase" class="hover:text-[#E8AC41] transition-all duration-300">Showcase</a>
                     <a href="#haven" class="hover:text-[#E8AC41] transition-all duration-300">Experience</a>
                     <a href="#haven" class="ml-4 px-8 py-3 bg-[#E8AC41] text-[#100C08] rounded-xs hover:bg-[#F4F0EC] shadow-[0_10px_20px_rgba(232,172,65,0.2)] transition-all">Visit Sanctuary</a>
                 </div>
+                <!-- Hamburger Button (Mobile only) -->
+                <button id="mobile-menu-btn" class="md:hidden flex flex-col justify-between w-6 h-4 z-[160] relative cursor-pointer" aria-label="Toggle Menu">
+                    <span class="w-full h-[1.5px] bg-[#F4F0EC] transition-all duration-300 origin-center"></span>
+                    <span class="w-full h-[1.5px] bg-[#F4F0EC] transition-all duration-300 origin-center"></span>
+                    <span class="w-full h-[1.5px] bg-[#F4F0EC] transition-all duration-300 origin-center"></span>
+                </button>
             </nav>
 
             <canvas id="particles-canvas" class="absolute inset-0 z-[5] pointer-events-none"></canvas>
 
             <header class="h-full flex items-center justify-center relative overflow-hidden">
-                <h1 class="absolute inset-0 flex items-center justify-center text-[clamp(10rem,20vw,24rem)] font-black text-[#3D2B1F]/20 select-none tracking-tighter z-0 leading-none transform -translate-y-12 font-serif" id="hero-bg-text">
+                <h1 class="absolute inset-0 flex items-center justify-center text-[clamp(4rem,18vw,20rem)] font-black text-[#3D2B1F]/20 select-none tracking-tighter z-0 leading-none transform -translate-y-12 font-serif" id="hero-bg-text">
                     AERIS
                 </h1>
 
@@ -222,10 +238,10 @@
             </div>
         <!-- Section: Showcase Selection -->
         <section class="showcase-section relative bg-[#0C0906]" id="showcase">
-            <div class="showcase-pin h-screen flex items-center overflow-hidden">
+            <div class="showcase-pin h-screen flex flex-col lg:flex-row items-center overflow-hidden">
                 
                 <!-- Left side: Text Details -->
-                <div class="w-1/2 h-full flex flex-col justify-center px-24 relative z-20 bg-[#0C0906]">
+                <div class="w-full lg:w-1/2 h-full flex flex-col justify-center px-6 md:px-16 lg:px-24 absolute lg:relative inset-0 lg:inset-auto z-20 bg-gradient-to-t from-[#0C0906] via-[#0C0906]/85 lg:via-transparent to-[#0C0906]/35 lg:to-transparent lg:bg-[#0C0906]">
                     <div class="overflow-hidden h-[20px] mb-4">
                         <div class="showcase-numbers-wrapper flex flex-col text-[#E8AC41] font-bold text-sm tracking-widest uppercase">
                             <span class="h-[20px] flex items-center">01 / 04</span>
@@ -237,30 +253,30 @@
                     
                     <div class="relative h-48 mb-6">
                         <div class="flavor-text-item absolute inset-0 opacity-1" data-index="0">
-                            <h3 class="text-7xl font-serif text-[#F4F0EC] mb-6">Obsidian Latte</h3>
-                            <p class="text-[#F4F0EC]/50 text-lg font-light leading-relaxed max-w-md">Charcoal-infused ristretto folded into micro-foamed oat milk with Madagascar vanilla.</p>
+                            <h3 class="text-4xl md:text-6xl lg:text-7xl font-serif text-[#F4F0EC] mb-4 md:mb-6">Obsidian Latte</h3>
+                            <p class="text-[#F4F0EC]/50 text-base md:text-lg font-light leading-relaxed max-w-md">Charcoal-infused ristretto folded into micro-foamed oat milk with Madagascar vanilla.</p>
                         </div>
                         <div class="flavor-text-item absolute inset-0 opacity-0" data-index="1">
-                            <h3 class="text-7xl font-serif text-[#F4F0EC] mb-6">Amber Cold Brew</h3>
-                            <p class="text-[#F4F0EC]/50 text-lg font-light leading-relaxed max-w-md">12-hour slow immersion extraction with notes of oak-smoked honey and forest floor.</p>
+                            <h3 class="text-4xl md:text-6xl lg:text-7xl font-serif text-[#F4F0EC] mb-4 md:mb-6">Amber Cold Brew</h3>
+                            <p class="text-[#F4F0EC]/50 text-base md:text-lg font-light leading-relaxed max-w-md">12-hour slow immersion extraction with notes of oak-smoked honey and forest floor.</p>
                         </div>
                         <div class="flavor-text-item absolute inset-0 opacity-0" data-index="2">
-                            <h3 class="text-7xl font-serif text-[#F4F0EC] mb-6">Velvet Espresso</h3>
-                            <p class="text-[#F4F0EC]/50 text-lg font-light leading-relaxed max-w-md">Pure single-origin concentrate with a thick, buttery hazelnut crema and dark cocoa finish.</p>
+                            <h3 class="text-4xl md:text-6xl lg:text-7xl font-serif text-[#F4F0EC] mb-4 md:mb-6">Velvet Espresso</h3>
+                            <p class="text-[#F4F0EC]/50 text-base md:text-lg font-light leading-relaxed max-w-md">Pure single-origin concentrate with a thick, buttery hazelnut crema and dark cocoa finish.</p>
                         </div>
                         <div class="flavor-text-item absolute inset-0 opacity-0" data-index="3">
-                            <h3 class="text-7xl font-serif text-[#F4F0EC] mb-6">Cerulean Pour</h3>
-                            <p class="text-[#F4F0EC]/50 text-lg font-light leading-relaxed max-w-md">Precision-brewed specialty beans revealing ethereal notes of jasmine and wild bergamot.</p>
+                            <h3 class="text-4xl md:text-6xl lg:text-7xl font-serif text-[#F4F0EC] mb-4 md:mb-6">Cerulean Pour</h3>
+                            <p class="text-[#F4F0EC]/50 text-base md:text-lg font-light leading-relaxed max-w-md">Precision-brewed specialty beans revealing ethereal notes of jasmine and wild bergamot.</p>
                         </div>
                     </div>
 
-                    <div class="mt-12">
+                    <div class="mt-8 md:mt-12">
                         <button class="px-10 py-4 border border-[#E8AC41] text-[#E8AC41] text-[10px] font-bold uppercase tracking-[0.4em] hover:bg-[#E8AC41] hover:text-[#100C08] transition-all">Order Ritual</button>
                     </div>
                 </div>
 
                 <!-- Right side: Layered Images -->
-                <div class="w-1/2 h-full relative overflow-hidden">
+                <div class="w-full lg:w-1/2 h-full absolute lg:relative inset-0 lg:inset-auto z-10 overflow-hidden">
                     <div class="flavor-image-container h-full w-full relative">
                         <img src="https://images.unsplash.com/photo-1720214963157-1723026a0ff8?auto=format&w=1400&q=80&fit=crop" class="flavor-img absolute inset-0 w-full h-full object-cover grayscale-[0.3] z-[4]" alt="Latte" decoding="async" loading="lazy">
                         <img src="https://images.pexels.com/photos/36788555/pexels-photo-36788555.jpeg?auto=compress&cs=tinysrgb&w=1400&q=80" class="flavor-img absolute inset-0 w-full h-full object-cover grayscale-[0.3] z-[3] opacity-0" alt="Cold Brew" decoding="async" loading="lazy">
@@ -268,7 +284,7 @@
                         <img src="https://images.unsplash.com/photo-1595827295672-97a059484442?auto=format&w=1400&q=80&fit=crop" class="flavor-img absolute inset-0 w-full h-full object-cover grayscale-[0.3] z-[1] opacity-0" alt="Pour Over" decoding="async" loading="lazy">
                     </div>
                     
-                    <div class="absolute inset-0 bg-gradient-to-r from-[#0C0906] via-transparent to-transparent z-10"></div>
+                    <div class="hidden lg:block absolute inset-0 bg-gradient-to-r from-[#0C0906] via-transparent to-transparent z-10"></div>
                     <div class="absolute inset-0 bg-[#0C0906]/20 z-10 mix-blend-multiply"></div>
                 </div>
             </div>
@@ -276,15 +292,17 @@
 
         <!-- Section 3: The Haven -->
         <section id="haven" class="relative h-[600px] md:h-[850px] bg-[#100C08] flex items-center justify-center overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-br from-[#100C08] via-[#3D2B1F]/40 to-[#100C08]"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-[#100C08] via-[#3D2B1F]/40 to-[#100C08] z-10"></div>
 
-            <div class="w-full max-w-4xl lg:max-w-5xl aspect-video relative z-0 overflow-hidden shadow-[0_0_120px_rgba(0,0,0,1)] ring-1 ring-[#F4F0EC]/10 reveal-node" id="haven-bg-container">
+            <div class="absolute inset-0 lg:relative w-full lg:max-w-4xl lg:max-w-5xl h-full lg:h-auto lg:aspect-video z-0 overflow-hidden shadow-[0_0_120px_rgba(0,0,0,1)] lg:ring-1 lg:ring-[#F4F0EC]/10 reveal-node" id="haven-bg-container">
                 <img src="https://images.pexels.com/photos/35005900/pexels-photo-35005900.jpeg?auto=compress&cs=tinysrgb&w=1600&q=80" alt="Warm Cafe Interior" class="w-full h-full object-cover grayscale-[0.3] hover:grayscale-0 transition-all duration-[8s] hover:scale-105" id="haven-bg-img" decoding="async" loading="lazy">
-                <div class="absolute inset-0 pointer-events-none border-[20px] md:border-[40px] border-[#100C08]/90"></div>
+                <div class="hidden lg:block absolute inset-0 pointer-events-none border-[40px] border-[#100C08]/90"></div>
                 <div class="absolute inset-0 pointer-events-none shadow-[inset_0_0_200px_rgba(0,0,0,1)]"></div>
+                <!-- Additional dark overlay for mobile readability -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#100C08]/90 via-transparent to-[#100C08] lg:hidden z-10 pointer-events-none"></div>
             </div>
 
-            <div class="absolute bottom-8 md:bottom-16 left-4 md:left:auto md:left-40 z-20 w-[calc(100%-2rem)] md:w-full max-w-sm bg-[#F4F0EC] p-6 md:p-10 shadow-[0_40px_80px_rgba(0,0,0,0.6)] transform -rotate-1 hover:rotate-0 transition-transform duration-700 reveal-node" id="haven-card">
+            <div class="absolute bottom-8 md:bottom-16 left-4 md:left-40 z-20 w-[calc(100%-2rem)] md:w-full max-w-sm bg-[#F4F0EC] p-6 md:p-10 shadow-[0_40px_80px_rgba(0,0,0,0.6)] transform -rotate-1 hover:rotate-0 transition-transform duration-700 reveal-node" id="haven-card">
                 <div class="flex items-center gap-4 mb-6">
                     <div class="w-10 h-0.5 bg-[#E8AC41]"></div>
                     <h3 class="text-[#100C08] text-3xl md:text-4xl font-serif leading-none">The Haven</h3>

@@ -481,7 +481,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .to({}, { duration: 0.3 });
 
         /* ---------- LENIS NAV SCROLL ---------- */
-        document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+        document.querySelectorAll('nav a[href^="#"], #mobile-menu a[href^="#"]').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const href = link.getAttribute('href');
@@ -491,6 +491,35 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
+
+        /* ---------- MOBILE MENU TOGGLE ---------- */
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                const isOpen = mobileMenu.classList.contains('translate-y-0');
+                if (isOpen) {
+                    mobileMenu.classList.remove('translate-y-0');
+                    mobileMenu.classList.add('-translate-y-full');
+                    menuBtn.classList.remove('active');
+                } else {
+                    mobileMenu.classList.remove('-translate-y-full');
+                    mobileMenu.classList.add('translate-y-0');
+                    menuBtn.classList.add('active');
+                }
+            });
+
+            // Close menu when clicking links
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('translate-y-0');
+                    mobileMenu.classList.add('-translate-y-full');
+                    menuBtn.classList.remove('active');
+                });
+            });
+        }
     });
 
     /* ---------- REDUCED MOTION FALLBACK ---------- */
